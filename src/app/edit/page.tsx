@@ -5,7 +5,7 @@ export default async function Edit() {
   async function createBook(data: FormData) {
     "use server";
 
-    await prisma.user.create({
+    await prisma.book.create({
       data: {
         name: data.get("name") as string,
         genre: data.get("genre") as string,
