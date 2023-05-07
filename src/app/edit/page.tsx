@@ -5,15 +5,11 @@ export default async function Edit() {
   async function createBook(data: FormData) {
     "use server";
 
-    const name = data.get("name") as string;
-    const genre = data.get("genre") as string;
-    const description = data.get("description") as string;
-
     await prisma.user.create({
       data: {
-        name,
-        genre,
-        description,
+        name: data.get("name") as string,
+        genre: data.get("genre") as string,
+        description: data.get("description") as string,
       },
     });
   }

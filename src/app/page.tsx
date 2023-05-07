@@ -2,7 +2,7 @@ import prisma from "@/lib/prisma";
 import Link from "next/link";
 
 export default async function Home() {
-  const books = await prisma.user.findMany();
+  const books = await prisma.book.findMany();
 
   return (
     <main className="text-gray-600 body-font">
@@ -18,20 +18,6 @@ export default async function Home() {
                 <span className="text-green-600 ">{book.genre}</span>
               </h2>
               <p className="leading-relaxed text-base">{book.description}</p>
-              <a className="mt-3 text-indigo-500 inline-flex items-center">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
             </div>
           </div>
         ))}
